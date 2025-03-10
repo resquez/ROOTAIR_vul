@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 탈퇴</title>
+    <link rel="stylesheet" href="/static/css/mypage/mypage_cancel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 네비게이션 바 -->
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그인 상태에 따라 동적 업데이트 -->
+        </ul>
+    </nav>
+
+    <!-- 회원 탈퇴 폼 -->
+    <div class="password-container">
+        <h2>회원 탈퇴를 진행하려면 비밀번호를 입력하세요</h2>
+        <form id="passwordForm">
+            <label for="password"><strong>비밀번호:</strong></label>
+            <input type="password" id="password" placeholder="비밀번호를 입력하세요" required>
+            <p id="error-message" class="error-message" hidden>⚠ 비밀번호가 틀렸습니다.</p>
+            <button type="submit" class="submit-btn">탈퇴</button>
+        </form>
+    </div>
+
+    <script src="/static/js/mypage/mypage_cancel.js"></script>
+</body>
+</html>
+

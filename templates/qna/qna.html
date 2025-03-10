@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의사항</title>
+    <link rel="stylesheet" href="/static/css/qna/qna.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> 
+</head>
+<!--네비게이션 메뉴 바-->
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>            
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그인 상태에 따라 동적 업데이트 -->
+        </ul>
+        
+    </nav>
+</body>
+
+<!-- 배경 이미지 -->
+<div class="image_qna">
+    <img src="/static/images/qna.jpg">
+</div>
+
+<!-- 문의사항 & 나의 문의 탭 -->
+<div class="tab-menu">
+    <button class="tab-button active" id="all-qna-tab" onclick="showTab('all-questions')">문의사항</button>
+    <button class="tab-button" id="my-qna-tab" onclick="showTab('my-questions')">나의 문의</button>
+</div>
+
+
+
+<div class="qna_container">
+    <!-- ✅ 문의사항 목록 -->
+    <div id="all-questions" class="tab-content active">
+        <h2>문의사항</h2>
+        <table class="question-table">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                </tr>
+            </thead>
+            <tbody id="question-list">
+                <!-- ✅ JS에서 데이터 로드 -->
+            </tbody>
+        </table>
+        <div class="pagination" id="pagination">
+           
+        </div>
+    </div>
+
+    <!-- ✅ 나의 문의 목록 -->
+    <div id="my-questions" class="tab-content">
+        <h2>나의 문의</h2>
+        <table class="question-table">
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성일</th>
+                </tr>
+            </thead>
+            <tbody id="my-question-list">
+          
+                <!-- ✅ JS에서 데이터 로드 -->
+            </tbody>
+        </table>
+        <div class="pagination" id="my-pagination"></div>
+    </div>
+
+    <div class="qna_button_container">
+        <button id="qnawrite">문의 등록</button>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                document.getElementById("qnawrite").addEventListener("click", function () {
+                    window.location.href = "http://192.168.1.100:80/qna/qna_create.html";
+                });
+            });
+        </script>
+    </div>
+</div>
+<script src="/static/js/qna/qna.js"></script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+body {
+    margin:0;
+    font-family: "Noto Sans KR";
+    font-weight: 400;
+    font-style: normal;
+}
+em {
+    font-style: normal;
+}
+a {
+    text-decoration: none;
+    color: #000;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    padding: 8px 12px;
+    border-bottom: 1px solid #ccc;
+}
+.navbar_logo{
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navbar_logo img {
+    margin-left: 150px;
+    width: 210px;
+    height: auto;
+}
+.navbar_menu {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    font-size: 27px;
+    font-weight: 500;
+    gap: 100px;
+}
+.navbar_menu li {
+    padding: 8px 20px;
+}
+.navbar_menu li:hover {
+    background-color: #e3dede;
+    border-radius: 10px;
+}
+.navbar_member {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+}
+.navbar_member li {
+    padding: 8px 14px;
+}
+.navbar_member li:hover {
+    background-color: #e3dede;
+    border-radius: 10px;
+}
+.navbar_signup {
+    margin-top: 13px;
+    margin-right: 10px;
+}
+.navbar_login {
+    font-size: 20px;
+    margin-top: 8px;
+    margin-right: 50px;
+    font-weight: 500;
+    border: 2px solid #000;
+    border-radius: 10px;
+}
+.navbar_togglebtn {
+    display: none;
+    position:absolute;
+    top: 32px;
+    right: 32px;
+    font-size: 24px;
+}
+@media screen and (max-width: 1040px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .navbar_menu {
+        font-size:16px;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 0px
+    }
+    .navbar_menu li {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar_member {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .navbar_member li {
+        width: 100%;
+        text-align: center;
+    }
+    .navbar_togglebtn {
+        display: block;
+    }
+    .navbar_menu.active,
+    .navbar_member.active {
+        display: flex;
+    }
+    .navbar_signup {
+        margin-left: 10px;
+    }
+    .navbar_login {
+        margin-left: 50px;
+        font-size:16px;
+        border: none;
+        border-radius: none;
+    }
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.left-section {
+    width: 60%;
+}
+
+.right-section {
+    width: 35%;
+}
+
+.box {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.17);
+    
+}
+
+/* 제목 */
+h2 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ✈ 항공권 선택 내역 */
+.ticket-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.ticket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+/* 공항 코드 스타일 */
+.departure-container strong,
+.arrival-container strong {
+    font-size: 27px; /* 가장 큰 글씨 */
+    font-weight: bold;
+}
+
+.departure-container p:first-of-type,
+.arrival-container p:first-of-type {
+    font-size: 12px; /* 날짜 크기 */
+}
+
+.departure-container p:last-of-type,
+.arrival-container p:last-of-type {
+    font-size: 12px; /* GMT 시간 크기 */
+    color: gray;
+}
+
+/* 비행 경로 */
+.flight-line-dashed {
+    flex-grow: 1;
+    border-top: 2px dashed #bbb;
+    margin: 0 15px;
+}
+
+.flight-line-solid {
+    flex-grow: 1;
+    border-top: 2px solid #bbb;
+    margin: 0 15px;
+}
+
+/* 비행기 아이콘 */
+.airplane-icon {
+    font-size: 30px;
+}
+
+/* 이코노미 & 1명 세로 정렬 */
+#class-info {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+/* ✈ 마일리지 영역 */
+.mileage-info, .mileage-input-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.mileage-input-wrapper input {
+    width: 80px;
+    padding: 5px;
+    text-align: right;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease;
+}
+/* 크롬, 사파리, 엣지 (Webkit 브라우저) */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.mileage-input-wrapper input:hover {
+    border-color: #666;
+}
+button#apply-mileage {
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    padding: 8px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 25px;
+}
+button#apply-mileage:hover {
+    background: #555;
+}
+/* ✈ 결제 수단 */
+.payment-row {
+    display: flex;
+    justify-content: space-between; /* 좌우 정렬 */
+    font-size: 14px;
+    margin 8px 0;
+}
+
+.payment-item {
+    width: 48%;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid #333;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+.payment-item:hover {
+    background-color: #ddd;
+}
+
+.payment-item p {
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ✈ 결제 상세 및 마일리지 혜택 */
+#rootpay-section p span:last-child,
+.final-payment-container p span:last-child,
+#rootpay-section p sapn: {
+    margin-left: 10px;
+    gap: 7px;
+}
+/* ✈ 버튼 스타일 */
+.button-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+#pay-button, #cancel-button {
+    width: 48%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+#pay-button {
+    background-color: #333;
+    color: white;
+}
+
+#cancel-button {
+    background-color: #ccc;
+}
+#pay-button:hover {
+    background-color: #555;
+}
+#cancel-button:hover {
+    background-color: #bbb;
+}
+/* 📌 ROOT PAY 잔액과 500000 KRW를 같은 줄에 정렬 */
+.only-rootpay {
+    display: flex;
+    justify-content: space-between;  /* 양쪽 정렬 */
+    align-items: center;
+    margin: 8px 0;
+}
+.only-rootpay .value {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;  /* 숫자가 오른쪽으로 정렬되도록 확장 */
+    min-width: 120px; /* 줄 바꿈 방지 */
+    text-align: right;
+    gap: 5px; /* 숫자와 KRW 간격 조정 */
+}
+✈ 탑승자별 운임 내역 스타일 */
+.passenger-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* 각 탑승자 정보 간격 조정 */
+    padding: 10px 0;
+}
+
+.passenger-item {
+    display: flex;
+    justify-content: space-between; /* 탑승자 정보와 운임을 양 끝 정렬 */
+    align-items: center;
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+}
+.passenger-name {
+    border-bottom: none;
+}
+
+.passenger-name {
+    font-weight: bold;
+}
+
+.passenger-fare {
+    color: #333;
+    font-weight: bold;
+}
+#final-payment {
+    margin-left: 50.2%;
+    color: red;
+}
+.mileage-item {
+    display: flex;
+    justify-content: space-between;
+}
+#rootpay-section p, .final-payment-container p {
+    display: flex;
+    justify-content: space-between;
+}
+#rootpay-balance {
+    margin-left: 42.7%;
+}

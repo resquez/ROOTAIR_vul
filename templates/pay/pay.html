@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>결제</title>
+    <link rel="stylesheet" href="/static/css/pay/pay.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://stdpay.inicis.com/stdjs/INIStdPay.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+</head>
+<body>
+<!--네비게이션 메뉴 바-->
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>            
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그인 상태에 따라 동적 업데이트 -->
+        </ul>
+    </nav>
+</body>
+<body>
+    <div class="container">
+        <div class="left-section">
+            <div class="box">
+                <h2>항공권 선택 내역</h2>
+                <div class="ticket-container">
+                    <div class="ticket">
+                        <div class="departure-container">
+			<strong id="departure"></strong>
+                        <p id="departure-date"></p>
+			</div>
+ 			<span class="flight-line-dashed"></span>
+                        <div class="airplane-icon">🛫</div>
+			<span class="flight-line-solid"></span>
+			<div class="arrival-container">
+                        <strong id="arrival"></strong>
+                        <p id="arrival-date"></p>
+			</div>
+                        <p id="class-info"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <h2>탑승자별 운임 내역</h2>
+                <div class="passenger-list-container" id="passenger-list">
+                    <!-- JavaScript로 동적으로 추가 -->
+                </div>
+            </div>
+
+            <div class="box mileage-section">
+                <h2>ROOT 마일리지</h2>
+                <div class="mileage-info">
+                    <p>보유 마일리지</p>
+                    <div class="mileage-value">
+                        <span id="total-mileage"></span> M
+                    </div>
+                </div>
+                <div class="mileage-input-wrapper">
+                    	<label for="mileage-input">사용</label>
+		    <div class="mileage-use">
+                    	<input type="number" id="mileage-input" placeholder="0"> M
+                    </div>
+		</div>
+                <button id="apply-mileage">마일리지 적용</button>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <div class="box payment-method">
+                <h2>결제 수단</h2>
+                <div class="payment-row">
+                    <button class="payment-item" id="rootpay"><p>Root PAY</p></button>
+                    <button class="payment-item" id="kg-inicis"><img src="/static/images/kg_inicis_logo.png" alt="KG 이니시스" width="80"></button>
+                </div>
+            </div>
+
+            <div class="box">
+                <h2>결제 상세</h2>
+                <div id="rootpay-section">
+                    <p><span>ROOT PAY 잔액</span> 
+				<span id="rootpay-balance">0</span></p>
+                    <p><span>사용 마일리지</span> 
+				<span id="mileage-used">0</span></p>
+                </div>
+                <div class="final-payment-container">
+                    <p><span>최종 결제 금액</span> 
+				<span id="final-payment">0</span></p>
+		</div>
+            </div>
+            
+            <div class="box">
+              <div class="mileage-container">
+                  <h2>마일리지 혜택</h2>
+                  <div class="mileage-box">
+                      <div class="mileage-item">
+				<span>현재 마일리지</span><span id="current-mileage">0</span> 
+		      </div>
+                      <div class="mileage-item">
+				<span>적립 마일리지</span> 
+					<span id="earned-mileage"></span> 
+		      </div>
+                      <div class="mileage-item">
+				<span>결제 시 보유 마일리지</span> 
+					<span id="total-mileage-final"></span> 
+		      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="button-section">
+                <button id="pay-button">결제</button>
+                <button id="cancel-button">취소</button>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="final-amount" value="0">
+    <input type="hidden" id="passenger_count" value="0">
+    <input type="hidden" id="passenger_names" value="0">
+
+    <script src="/static/js/pay/pay.js"></script>
+</body>
+</html>

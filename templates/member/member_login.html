@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="/static/css/member/member_login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="/static/js/member/member_login.js"></script>
+</head>
+
+<!--네비게이션 메뉴 바-->
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>            
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그인 상태에 따라 동적 업데이트 -->
+        </ul>
+    </nav>
+</body>
+
+<body>
+    <!-- 로그인 페이지 -->
+    <div class="login_page_wrapper">
+        <header id="LoginType" class="login_wrap"></header>
+        <div class="login-page">
+            <!-- 로그인 폼 -->
+            <div class="login-input">
+                <form id="login-form">
+                    <!-- 사용자 ID 입력 -->
+                    <div class="userID">
+                        <input type="text" id="user_id" name="user_id" placeholder="아이디" required />
+                    </div>
+
+                    <!-- 비밀번호 입력 -->
+                    <div class="password">
+                        <input type="password" id="password" name="password" placeholder="비밀번호" required />
+                    </div>
+
+                    <!-- 로그인 버튼 -->
+                    <div class="logininput">
+                        <button type="submit">로그인</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- 비밀번호 찾기 및 회원가입 링크 -->
+            <div class="bottombox">
+                <a class="find-pw" href="http://192.168.1.100:80/member/member_find.html">비밀번호 찾기</a>
+                <a class="sign-on" href="http://192.168.1.100:80/member/member_signup.html">회원가입</a>
+            </div>
+
+            <!-- 로그인 결과 메시지 -->
+            <p id="loginMessage" class="message"></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("login-form").addEventListener("submit", function (event) {
+                event.preventDefault();
+
+                let formData = {
+                    user_id: document.getElementById("user_id").value,
+                    password: document.getElementById("password").value
+                };
+
+                fetch("http://192.168.1.101:5000/api/member/login", {  // ✅ API 호출 방식으로 변경
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(formData),
+                    credentials: "include"
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        alert(data.message);
+                        window.location.href = "http://192.168.1.100:80/main/main.html";  // ✅ 로그인 후 메인 페이지 이동
+                    } else {
+                        document.getElementById("loginMessage").textContent = data.error || "로그인 실패";
+                    }
+                })
+                .catch(error => console.error("로그인 요청 오류:", error));
+            });
+        });
+    </script>
+</body>
+</html>

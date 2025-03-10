@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의 수정</title>
+    <link rel="stylesheet" href="/static/css/qna/qna_edit.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그인 상태에 따라 동적 업데이트 -->
+        </ul>
+        <img class="navbar_togglebtn" src="/static/images/topbar.jpg" width="24" height="18"/>
+    </nav>
+
+    <div class="register_container_page">
+        <div class="register_container">
+            <h2>문의사항 수정</h2>
+
+            <form id="qnaForm" method="post" enctype="multipart/form-data">
+                <label for="title">제목</label>
+                <input type="text" id="title" name="title">
+
+                <label for="file">첨부 파일</label>
+                <div class="file-upload-container">
+                    <input type="file" id="file" name="file" style="display: none;">
+                    <button type="button" id="fileUploadBtn">파일 선택</button>
+                </div>
+
+                <label for="content">내용</label>
+                <textarea class="editcontent" id="content" name="content"></textarea>
+
+                <div class="btnandcheck">
+                    <div class="checkbox_container">
+                        <input type="checkbox" id="private" name="isPrivate">
+                        <label for="private">비밀글</label>
+                    </div>
+                    <div class="btaline">
+                        <button type="submit" id="submit_btn">문의 수정</button>
+                    </div>
+                </div>
+
+                <div class="defaultfile_box">
+                    <label for="file">첨부되어있는 파일</label>
+                    <div class="defaultfile">
+                        <span id="fileNameDisplay">선택된 파일 없음</span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ✅ JS 파일 로드 -->
+    <script src="/static/js/qna/qna_edit.js"></script>
+</body>
+</html>
+

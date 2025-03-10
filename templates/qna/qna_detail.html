@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의 상세</title>
+    
+    <!-- Flask 방식으로 CSS 로드 -->
+    <link rel="stylesheet" href="/static/css/qna/qna_detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="/static/js/qna/qna_detail.js"></script>
+
+</head>
+
+<!--네비게이션 메뉴 바-->
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>            
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그인 상태에 따라 동적 업데이트 -->
+        </ul>
+        <img class="navbar_togglebtn" src="/static/images/topbar.jpg" width="24" height="18"/>
+    </nav>
+</body>
+
+<body>
+    <div class="qna_detail_container">
+        <h2>문의사항</h2>
+        <div class="qna_detail">
+            <div class="qna_detail_wrap">
+                <h3 id="qna_title"></h3>
+            </div>
+            <p class="qna_info">
+                작성자: <span id="qna_user"></span> | 작성일: <span id="qna_date"></span>
+                <span id="file_section" style="display:none;"> | 첨부파일:
+                    <a id="download_link" download>
+                        <img src="http://192.168.1.100:80/static/images/file.png" width="20" height="15">
+                    </a>
+                </span>
+            </p>
+            <hr>
+            <p id="qna_content"></p>
+        </div>
+
+<div class="admin_reply">
+    <h4>관리자 답변</h4>
+    <p id="qna_comment">아직 답변이 없습니다.</p>  <!-- 여기에서 댓글이 표시됨 -->
+    <div id="admin_reply_container" style="display:none;">
+        <textarea id="admin_reply_input" placeholder="답변을 입력하세요"></textarea>
+        <button id="answerBtn" class="btn answer-btn">답변 등록</button>
+    </div>
+</div>
+
+        <div class="btn_container">
+            <button id="editBtn" class="btn edit-btn" style="display:none;">수정</button>
+            <button id="deleteBtn" class="btn delete-btn" style="display:none;">삭제</button>
+            <button id="backBtn" class="btn back-btn">목록보기</button>
+        </div>
+       
+                     
+</body>
+
+</html>

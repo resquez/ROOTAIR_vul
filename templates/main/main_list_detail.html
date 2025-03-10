@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>항공권 상세정보</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> 
+    <link rel="stylesheet" href="/static/css/main/main_list_detail.css">   
+</head>
+
+<!--네비게이션 메뉴 바-->
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>            
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그인 상태에 따라 동적 업데이트 -->
+        </ul>
+    </nav>
+</body>
+
+<body>
+    <div class="flight-container">
+        <button class="arrow-btn">◀</button>
+        <div class="flight-title" id="flightTitle">FLIGHT_01</div>
+        <button class="arrow-btn">▶</button>   
+    </div>
+
+    <div class="flight-card">
+        <div class="flight-header">
+            <h3>🛫 출발 항공편</h3>
+        </div>
+
+        <div class="flight-details">
+            <!-- 출발 날짜 및 좌석 등급 -->
+            <div class="flight-date">
+                <span id="departure-date" class="date"></span>
+                <span id="seat-class" class="seat-class"></span>
+            </div>
+
+            <!-- 출발 공항 ~ 도착 공항 -->
+            <div class="flight-route">
+                <div class="airport">
+                    <span id="departure-airport" class="airport-name"></span>
+                    <span id="departure-code" class="airport-code"></span>
+                </div>
+                <div class="flight-path">
+                    <span id="flight-dashed-line" class="dashed-line"></span>
+                    <div id="plane-container" class="plane-container">
+                        <span id="plane-icon" class="plane-icon">✈</span>
+                        <span id="flight-name" class="flight-name"></span>
+                    </div>
+                    <div id="single-line" class="single-line"></div>
+                </div>
+                <div class="airport">
+                    <span id="arrival-airport" class="airport-name"></span>
+                    <span id="arrival-code" class="airport-code"></span>
+                </div>
+            </div>
+
+            <!-- 출발 시간 ~ 도착 시간 -->
+            <div class="flight-time">
+                <span id="departure-time" class="departure-time"></span>
+                <div id="time-path" class="time-path">
+                    <div id="time-dashed-line" class="dashed-line"></div>
+                    <div id="time-arrow" class="arrow"></div>
+                </div>
+                <span id="arrival-time" class="arrival-time"></span>
+            </div>
+        </div>
+
+        <!-- 공백 유지 -->
+        <div></div>
+
+    </div>
+
+    <div></div>
+
+    <h3 class="passenger-title">탑승객 정보 입력</h3>
+
+    <form id="bookingForm">
+        <!-- 항공편 ID -->
+        <input type="hidden" id="flightId" name="flight_id">
+        <!-- 🚀 탑승객 수 -->
+        <input type="hidden" id="passengerCount" name="passenger_count">
+
+        <div class="passenger-form">
+            <table>
+                <thead>
+                    <tr>
+                        <th>여권 영문명</th>
+                        <th>성별</th>
+                        <th>생년월일(8자리)</th>
+                    </tr>
+                </thead>
+                <tbody id="passengerTableBody">
+                    <!-- 🚀 JavaScript가 여기에 동적으로 생성할 것 -->
+                </tbody>
+            </table>
+
+            <div class="submit-container">
+                <button type="submit" class="submit-btn">제출</button>
+            </div>
+        </div>
+    </form>
+
+    <script src="/static/js/main/main_list_detail.js"></script>
+</body>
+</html>

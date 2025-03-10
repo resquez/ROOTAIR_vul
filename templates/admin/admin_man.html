@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 목록</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script> 
+    <link rel="stylesheet" href="/static/css/admin/admin_man.css">    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="http://192.168.1.100:80/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>            
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그인 상태에 따라 동적 업데이트 -->
+        </ul>
+    </nav>
+</body>
+
+
+<body>
+    <div class="admin_man_container">
+        <h2>회원정보(관리자용)</h2>
+        <div class="admin_man_search">
+	<input type="text" id="searchInput" onkeyup="searchMembers()" placeholder="찾으실 회원의 정보를 검색하세요">
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Index</th>
+                    <th>ID</th>
+                    <th>이름</th>
+                    <th>전화번호</th>
+                    <th>Email</th>
+                    <th>삭제</th>
+                </tr>
+            </thead>
+            <tbody id="memberTable"></tbody>
+        </table>
+            
+        <div class="pagination">
+            <button id="prevPage" class="page-btn">← Previous</button>
+            <span id="pageNumbers"></span>
+            <button id="nextPage" class="page-btn">Next →</button>
+        </div>
+    </div>
+    <script src="/static/js/admin/admin_man.js"></script>
+</body>
+</html>    

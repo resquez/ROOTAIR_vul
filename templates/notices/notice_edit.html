@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항수정</title>
+    <link rel="stylesheet" href="/static/css/notices/notice_edit.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="/static/js/notices/notice_edit.js"></script>
+
+</head>
+
+<!--?�비게이??메뉴 �?->
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>            
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그???�태???�라 ?�적 ?�데?�트 -->
+        </ul>
+    </nav>
+</body>
+    
+<body>
+    <div class="register_container_page">
+        <div class="register_container">
+            <h2>공지사항 수정</h2>
+
+            <form id="noticeForm" enctype="multipart/form-data">
+                <label for="title">제목</label>
+                <input type="text" id="title" name="title">
+
+                <label for="file">첨부파일</label>
+                <div class="file-upload-container">
+                    <input type="file" id="file" name="file" style="display: none;">
+                    <input type="file" id="fileUploadBtn" name="existing_file">
+                </div>
+
+                <label for="content">내용</label>
+                <textarea class="editcontent" id="content" name="content"></textarea>
+
+                <div class="btnandcheck">
+                    <div class="btaline">
+                        <button type="button" id="submit_btn">공지사항수정</button>
+                    </div>
+                </div>
+                <div class="defaultfile_box">
+                    <label for="file">첨부되어있는파일</label>
+                    <div class="defaultfile">
+                        <span id="fileNameDisplay">
+                            <span id="existingFile"></span>
+                            <button type="button" id="removeFile">제거</button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+</html>

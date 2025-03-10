@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공지사항 상세</title>
+    <link rel="stylesheet" href="/static/css/notices/notice_detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="/static/js/notices/notice_detail.js"></script>
+
+   
+</head>
+
+<!--네비게이션 메뉴 바-->
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>            
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그인 상태에 따라 동적 업데이트 -->
+        </ul>
+    </nav>
+</body>
+
+<div id="image_notice">
+    <img src="/static/images/notice.jpg" alt="공지 이미지">
+</div>
+
+<body>
+    <div class="notice_detail_container">
+        <h2>공지사항</h2>
+        <div class="notice_detail_wrap">
+            <h3 id="notice_detail_title"></h3>
+            <div class="dateandfile">
+                <p class="notice_detail_meta">
+                  작성일: <span class="notice_detail_date" id="notice_detail_date"></span>
+                    <a id="download_link" style="display:none;" download>| 첨부 파일:
+                        <img src="http://192.168.1.100:80/static/images/file.png" width="20" height="15">
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <div class="notice_detail_content">
+            <p id="notice_detail_content"></p>
+        </div>
+
+        <div class="detail_button">
+            <div class="detail_edit_button" id="editButtonContainer" style="display:none;">
+                <button id="editBtn" class="edit_button">수정</button>
+            </div>            
+            <div class="detail_del_button" id="deleteButtonContainer" style="display:none;">
+                <button id="deleteBtn" class="btn delete-btn">삭제</button>
+            </div>
+            <div class="detail_back_button">
+                <button onclick="goBack()" class="back_button">목록보기</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notices</title>
+    <link rel="stylesheet" href="/static/css/notices/notice_create.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <script src="/static/js/notices/notice_create.js"></script>
+</head>
+
+<!--네비게이션 메뉴 바-->
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>            
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그인 상태에 따라 동적 업데이트 -->
+        </ul>
+    </nav>
+</body>
+
+<body> 
+    <div class="register_container">
+        <h2>공지사항 등록</h2>
+
+        <form id="noticeForm">
+            <label for="title">제목</label>
+            <input type="text" id="title" name="title" placeholder="제목을 입력하세요">
+
+            <label for="file">첨부 파일</label>
+            <input type="file" id="file" name="file">
+
+            <label for="content">내용</label>
+            <textarea id="content" name="content" placeholder="내용을 입력하세요"></textarea>
+
+            <button type="submit" id="submit_btn">공지 등록</button>
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Select</title>
+    <link rel="stylesheet" href="/static/css/main/main_list.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+</head>
+
+<!--네비게이션 메뉴 바-->
+<body>
+    <nav class="navbar">
+        <div class="navbar_logo">
+            <a href="http://192.168.1.100:80/main/main.html">
+                <img src="/static/images/rootair.jpg"/>
+            </a>
+        </div>
+        <ul class="navbar_menu">
+            <li><a href="http://192.168.1.100:80/main/main.html">예약</a></li>
+            <li><a href="http://192.168.1.100:80/notices/notices.html">공지사항</a></li>
+            <li><a href="http://192.168.1.100:80/qna/qna.html">문의사항</a></li>            
+        </ul>
+        <ul class="navbar_member" id="navbar_member">
+            <!-- 로그인 상태에 따라 동적 업데이트 -->
+        </ul>
+    </nav>
+</body>
+
+<body>
+    <div class="flight-container">
+        <div class="flight-header">
+            <button class="arrow-btn left">◀</button>
+            <h2 id="flightTitle">FLIGHT_01</h2>
+            <button class="arrow-btn right">▶</button>
+        </div>
+
+        <!-- 항공권 목록 -->
+        <div class="flight-list" id="flightList">
+            <!-- JavaScript에서 항공권 동적 생성 -->
+        </div>
+
+        <!-- 제출 버튼 -->
+        <button class="submit-btn">제출</button>
+    </div>
+
+    <script src="/static/js/main/main_list.js"></script>
+</body>
+</html>
+
+
