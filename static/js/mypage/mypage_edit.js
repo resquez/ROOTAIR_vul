@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ 사용자 정보 불러오기
     function loadUserInfo() {
-        fetch("http://10.0.3.150:5000/api/mypage/user_info", {
+        fetch("http://43.200.242.111/api/mypage/user_info", {
             method: "GET",
             credentials: "include"
         })
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             console.log("📌 비밀번호 확인 요청 시작...");
-            fetch("http://10.0.3.150:5000/api/mypage/verify_password", {
+            fetch("http://43.200.242.111/api/mypage/verify_password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // ✅ 서버로 회원정보 업데이트 요청
-            fetch("http://10.0.3.150:5000/api/mypage/update", {
+            fetch("http://43.200.242.111/api/mypage/update", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",

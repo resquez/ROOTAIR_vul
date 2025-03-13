@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.setAttribute("data-qna-id", qnaId);
 
     // ✅ 문의사항 상세 조회
-    fetch(`http://10.0.3.150:5000/api/qna/detail/${qnaId}`, {
+    fetch(`http://43.200.242.111/api/qna/detail/${qnaId}`, {
 	method: "GET",
     	credentials: "include" 
     })
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
             formData.append("file", fileInput.files[0]);
         }
 
-        fetch(`http://10.0.3.150:5000/api/qna/edit/${qnaId}`, {
+        fetch(`http://43.200.242.111/api/qna/edit/${qnaId}`, {
             method: "POST",
             body: formData,
             credentials: "include"

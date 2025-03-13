@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /** ✅ 네비게이션바 로그인 상태 업데이트 */
     function updateNavbar() {
-        fetch("http://10.0.3.150:5000/api/member/status", {
+        fetch("http://43.200.242.111/api/member/status", {
             credentials: "include" // ✅ 쿠키 포함
         })
         .then(response => response.json())
@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", function () {
             navbarMember.innerHTML = ""; // 기존 내용 초기화
             if (data.is_authenticated) {
                 navbarMember.innerHTML = data.is_admin
-                    ? `<li><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                    ? `<li><a href="http://43.200.242.111/api/member/logout">로그아웃</a></li>
                        <li><a href="http://43.200.242.111:80/admin/admin_man.html">회원정보</a></li>`
-                    : `<li><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                    : `<li><a href="http://43.200.242.111/api/member/logout">로그아웃</a></li>
                        <li><a href="http://43.200.242.111:80/mypage/mypage.html">마이페이지</a></li>`;
             } else {
                 navbarMember.innerHTML = `<li><a href="http://43.200.242.111:80/member/member_signup.html">회원가입</a></li>
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateNavbar(); // 페이지 로드 시 즉시 실행
 
     /** ✅ 이메일 인증 후 자동 입력 */
-    fetch("http://10.0.3.150:5000/api/member/get_verified_email", {
+    fetch("http://43.200.242.111/api/member/get_verified_email", {
         method: "GET",
         credentials: "include"
     })
@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fetch("http://10.0.3.150:5000/api/member/check-id", {
+        fetch("http://43.200.242.111/api/member/check-id", {
             method: "POST",
             credentials: "include", // ✅ 쿠키 포함
             headers: { "Content-Type": "application/json" },
@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
             email: emailInput.value
         };
 
-        fetch("http://10.0.3.150:5000/api/member/signup", {
+        fetch("http://43.200.242.111/api/member/signup", {
             method: "POST",
             credentials: "include", // ✅ 쿠키 포함
             headers: { "Content-Type": "application/json" },

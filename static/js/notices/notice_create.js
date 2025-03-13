@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://10.0.3.150:5000/api/member/status", {
+    fetch("http://43.200.242.111/api/member/status", {
         method: "GET",
         credentials: "include"
     })
@@ -13,13 +13,13 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.is_admin) {
                 // ✅ 관리자 계정
                 navbarMember.innerHTML = `
-                    <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                    <li class="navbar_signup"><a href="http://43.200.242.111/api/member/logout">로그아웃</a></li>
                     <li class="navbar_login"><a href="http://43.200.242.111:80/admin/admin_man.html">회원정보</a></li>
                 `;
             } else {
                 // ✅ 일반 로그인 사용자
                 navbarMember.innerHTML = `
-                    <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                    <li class="navbar_signup"><a href="http://43.200.242.111/api/member/logout">로그아웃</a></li>
                     <li class="navbar_login"><a href="http://43.200.242.111:80/mypage/mypage.html">마이페이지</a></li>
                 `;
             }
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData(form); // ✅ 폼 데이터 가져오기
 
         // ✅ 서버로 공지사항 등록 요청
-        fetch("http://10.0.3.150:5000/api/notices/create", {
+        fetch("http://43.200.242.111/api/notices/create", {
             method: "POST",
             credentials: "include",  // ✅ 세션 유지 (로그인 상태 확인)
             body: formData

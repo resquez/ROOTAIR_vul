@@ -1,7 +1,7 @@
 
                 // 네비게이션 스크립트
     document.addEventListener("DOMContentLoaded", function () {
-        fetch("http://10.0.3.150:5000/api/member/status", {
+        fetch("http://43.200.242.111/api/member/status", {
                 mcdethod: "GET",
                 credentials:"include"
             })
@@ -13,13 +13,13 @@
                     if (data.is_admin) {
                         // ✅ 관리자 계정
                         navbarMember.innerHTML = `
-                            <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                            <li class="navbar_signup"><a href="http://43.200.242.111/api/member/logout">로그아웃</a></li>
                             <li class="navbar_login"><a href="http://43.200.242.111:80/admin/admin_man.html">회원정보</a></li>
                         `;
                     } else {
                         // ✅ 일반 로그인 사용자
                         navbarMember.innerHTML = `
-                            <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                            <li class="navbar_signup"><a href="http://43.200.242.111/api/member/logout">로그아웃</a></li>
                             <li class="navbar_login"><a href="http://43.200.242.111:80/mypage/mypage.html">마이페이지</a></li>
                         `;
                     }
@@ -44,7 +44,7 @@ document.getElementById("verifyButton").addEventListener("click", function () {
         return;
     }
 
-    fetch("http://10.0.3.150:5000/api/member/verify", {
+    fetch("http://43.200.242.111/api/member/verify", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",  // 🔹 세션 유지 필수
@@ -70,7 +70,7 @@ function requestVerification() {
         return;
     }
     $.ajax({
-        url: 'http://10.0.3.150:5000/api/member/request-verification',
+        url: 'http://43.200.242.111/api/member/request-verification',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({ email: email }),
@@ -94,7 +94,7 @@ function verifyOTP() {
     }
 
     $.ajax({
-        url: 'http://10.0.3.150:5000/api/member/verify',
+        url: 'http://43.200.242.111/api/member/verify',
         method: 'POST',
         contentType: 'application/json',
         data: JSON.stringify({ email: email, otp: otp }),
@@ -116,7 +116,7 @@ function verifyOTP() {
 }
 $(document).ready(function() {
     $.ajax({
-        url:'http://10.0.3.150:5000/api/member/get_verified_email', // Flask 백엔드 주소
+        url:'http://43.200.242.111/api/member/get_verified_email', // Flask 백엔드 주소
         method: 'GET',
         xhrFields: { withCredentials: true },  // 세션 유지 필수
         success: function(response) {

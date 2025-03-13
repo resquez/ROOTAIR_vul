@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const remainingBalance = urlParams.get("remaining_balance");
 
     if (flightId && userId) {
-	fetch(`http://10.0.3.150:5000/api/pay/pay_info?flight_id=${flightId}&user_id=${userId}&total_price=${totalPrice}&final_mileage=${finalMileage}&remaining_balance=${remainingBalance}`)
+	fetch(`http://43.200.242.111/api/pay/pay_info?flight_id=${flightId}&user_id=${userId}&total_price=${totalPrice}&final_mileage=${finalMileage}&remaining_balance=${remainingBalance}`)
             .then(response => response.json())
             .then(data => {
                 console.log("✅ DEBUG: API 응답 데이터 =", data);
@@ -107,7 +107,7 @@ function submitPayment() {
         console.log(`${pair[0]} = ${pair[1]}`);
     }
 
-    fetch("http://10.0.3.150:5000/api/pay/process_payment", {
+    fetch("http://43.200.242.111/api/pay/process_payment", {
         method: "POST",
         credentials: "include",
         body: formData

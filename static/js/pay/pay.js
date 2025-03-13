@@ -1,6 +1,6 @@
 // 네비게이션 스크립트
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://10.0.3.150:5000/api/member/status", {
+    fetch("http://43.200.242.111/api/member/status", {
     method: "GET",
     credentials:"include"
     })
@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (data.is_admin) {
                     // ✅ 관리자 계정
                     navbarMember.innerHTML = `
-                        <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                        <li class="navbar_signup"><a href="http://43.200.242.111/api/member/logout">로그아웃</a></li>
                         <li class="navbar_login"><a href="http://43.200.242.111:80/admin/admin_man.html">회원정보</a></li>
                     `;
                 } else {
                     // ✅ 일반 로그인 사용자
                     navbarMember.innerHTML = `
-                        <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                        <li class="navbar_signup"><a href="http://43.200.242.111/api/member/logout">로그아웃</a></li>
                         <li class="navbar_login"><a href="http://43.200.242.111:80/mypage/mypage.html">마이페이지</a></li>
                     `;
                 }
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(`✅ 불러온 예약 정보 - flight_id: ${flightId}, passengerNames: ${passengerNames}`);
 
     // ✅ 결제 정보 API(`pay_data_common`) 호출
-    fetch(`http://10.0.3.150:5000/api/pay/pay_data_common?flight_id=${flightId}`, {
+    fetch(`http://43.200.242.111/api/pay/pay_data_common?flight_id=${flightId}`, {
         method: "GET",
         credentials: "include"
     })
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     async function fetchMileage() {
         try {
-            let response = await fetch("http://10.0.3.150:5000/api/pay/get_mileage", {
+            let response = await fetch("http://43.200.242.111/api/pay/get_mileage", {
                 method: "GET",
                 credentials: "include"
             });
@@ -332,7 +332,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // ✅ 세션에서 사용자 정보 가져오기
         let userId, username;
         try {
-            let response = await fetch("http://10.0.3.150:5000/api/member/status", {
+            let response = await fetch("http://43.200.242.111/api/member/status", {
                 method: "GET",
                 credentials: "include"
             });
@@ -412,7 +412,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let flightId = localStorage.getItem("selected_flight_id");
     
         try {
-            let response = await fetch("http://10.0.3.150:5000/api/member/status", {  
+            let response = await fetch("http://43.200.242.111/api/member/status", {  
                 method: "GET",
                 credentials: "include"
             });
@@ -439,7 +439,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }, async function (rsp) {  
                 if (rsp.success) {
                     try {
-                        let paymentResponse = await fetch("http://10.0.3.150:5000/api/pay/process_inicis_payment", {
+                        let paymentResponse = await fetch("http://43.200.242.111/api/pay/process_inicis_payment", {
                             method: "POST",
                             credentials: "include",
                             body: new URLSearchParams({

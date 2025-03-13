@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://10.0.3.150:5000/api/member/status", {
+    fetch("http://43.200.242.111/api/member/status", {
         method: "GET",
         credentials: "include"
     })
@@ -12,13 +12,13 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.is_admin) {
                 // ✅ 관리자 계정
                 navbarMember.innerHTML =` 
-                    <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                    <li class="navbar_signup"><a href="http://43.200.242.111/api/member/logout">로그아웃</a></li>
                     <li class="navbar_login"><a href="http://43.200.242.111:80/admin/admin_man.html">회원정보</a></li>
                 `;
             } else {
                 // ✅ 일반 로그인 사용자
                 navbarMember.innerHTML =` 
-                    <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                    <li class="navbar_signup"><a href="http://43.200.242.111/api/member/logout">로그아웃</a></li>
                     <li class="navbar_login"><a href="http://43.200.242.111:80/mypage/mypage.html">마이페이지</a></li>
                 `;
             }
@@ -67,7 +67,7 @@ const itemsPerPage = 5;
 function fetchInquiryList(page = 1) {
     //console.log(🔥 [DEBUG] 문의사항 API 호출: 페이지 = ${page});
 
-    fetch(`http://10.0.3.150:5000/api/qna/?page=${page}`, {
+    fetch(`http://43.200.242.111/api/qna/?page=${page}`, {
 	method: "GET",
 	credentials:"include"
     })
@@ -90,7 +90,7 @@ function fetchInquiryList(page = 1) {
 function fetchMyInquiryList(page = 1) {
    // console.log(🔥 [DEBUG] 나의 문의 API 호출: 페이지 = ${page});
 
-    fetch(`http://10.0.3.150:5000/api/qna/my?page=${page}`, {
+    fetch(`http://43.200.242.111/api/qna/my?page=${page}`, {
        method: "GET",
        credentials: "include"
     })
@@ -216,7 +216,7 @@ function createPaginationButtons(totalPages, currentPage,tabType="all") {
 function fetchCurrentUser() {
     //console.log("🔥 [DEBUG] 로그인한 사용자 정보 세션에서 가져오기");
 
-    fetch('http://10.0.3.150:5000/api/qna/',{  // ✅ qna_api() 호출하면 user_id 확인 가능
+    fetch('http://43.200.242.111/api/qna/',{  // ✅ qna_api() 호출하면 user_id 확인 가능
         method: "GET",
         credentials: "include"
 	})
