@@ -114,7 +114,7 @@ def verify():
                 
                 current_app.logger.info(f"✅ 이메일 인증 성공: {email}")
                 
-                redirect_url = "http://10.0.1.100:80/member/member_signup.html"
+                redirect_url = "http://43.200.242.111:80/member/member_signup.html"
                 return jsonify({"message": "Verification successful", "redirect_url": redirect_url}), 200
 
         return jsonify({"error": "Invalid OTP"}), 400
@@ -247,7 +247,7 @@ def login():
 @login_required
 def logout():
     logout_user()
-    return redirect("http://10.0.1.100:80/main/")  # ✅ 로그아웃 후 메인 페이지로 이동
+    return redirect("http://43.200.242.111:80/main/")  # ✅ 로그아웃 후 메인 페이지로 이동
     
 ###########################비밀번호 찾기##########################################
 # 인증코드 생성 함수

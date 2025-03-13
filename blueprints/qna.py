@@ -232,7 +232,7 @@ def qna_create_api():
     return jsonify({
         'message': '문의사항이 성공적으로 등록되었습니다.', 
         # 'redirect_url': url_for('qna.qna_api')
-        'redirect_url': "http://10.0.1.100:80/qna/qna.html"
+        'redirect_url': "http://43.200.242.111:80/qna/qna.html"
     })
 
 # 📌 문의사항 수정 API (POST 요청)

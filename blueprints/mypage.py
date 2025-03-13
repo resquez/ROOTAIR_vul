@@ -103,7 +103,7 @@ def mypage():
 @login_required
 def edit_page():
     """회원정보 수정 페이지 URL 반환"""
-    return jsonify({"redirect_url": "http://10.0.1.100:80/mypage/mypage_edit.html"})
+    return jsonify({"redirect_url": "http://43.200.242.111:80/mypage/mypage_edit.html"})
 
 
 # ✅ 회원정보 조회 API

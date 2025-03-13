@@ -57,7 +57,7 @@ def pay_data_common():
             "phone_number": user["phone_number"],
             "total_mileage": user["mileage"],
             "balance": user["balance"],
-            "redirect_url": "http://10.0.1.100:80/pay/pay.html"
+            "redirect_url": "http://43.200.242.111:80/pay/pay.html"
         }
 
         print(response_data)
@@ -293,7 +293,7 @@ def process_payment():
 
         # ✅ 결제 성공 후 리디렉트
         return jsonify({
-            "redirect_url": f"http://10.0.1.100:80/pay/pay_succ?booking_id={booking_id}",
+            "redirect_url": f"http://43.200.242.111:80/pay/pay_succ?booking_id={booking_id}",
             "final_mileage": final_mileage,
             "remaining_balance": remaining_balance
         }), 200  
@@ -415,7 +415,7 @@ def process_inicis_payment():
         # ✅ 결제 성공 후 리디렉트
         return jsonify({
             "success": True,
-            "redirect_url": f"http://10.0.1.100:80/pay/pay_succ?booking_id={booking_id}"
+            "redirect_url": f"http://43.200.242.111:80/pay/pay_succ?booking_id={booking_id}"
         })
 
     except Exception as e:

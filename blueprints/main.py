@@ -13,7 +13,7 @@ main_bp = Blueprint('main', __name__, url_prefix='/api/main')
 def main():
     return jsonify({
         "message": "Main API is working!",
-        "redirect_url": "http://10.0.1.100:80/main/main.html"
+        "redirect_url": "http://43.200.242.111:80/main/main.html"
     })
 
 
@@ -55,7 +55,7 @@ def search_results():
 
     return jsonify({
         "flights":flights,
-        "redirect_url":"http://10.0.1.100:80/main/main_list.html"
+        "redirect_url":"http://43.200.242.111:80/main/main_list.html"
     })
 
 
@@ -89,7 +89,7 @@ def flight_detail(flight_id):
         "departure_code": flight.get("departure_code",""),
         "arrival_code": flight.get("arrival_code",""),
         "passenger_count": passenger_count,
-        "redirect_url": "http://10.0.1.100:80/main/main_list_detail.html"
+        "redirect_url": "http://43.200.242.111:80/main/main_list_detail.html"
     })
 
 @main_bp.route('/book', methods=['POST'])
@@ -133,7 +133,7 @@ def book_flight():
 
         response_data = {
             "flights": flights,
-            "redirect_url": "http://10.0.1.100:80/pay/pay.html"
+            "redirect_url": "http://43.200.242.111:80/pay/pay.html"
         }
 
         print(f"📢 [FLASK] 응답 데이터: {response_data}")  # ✅ 응답 데이터 확인
