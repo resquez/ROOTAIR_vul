@@ -13,20 +13,20 @@
                         // ✅ 관리자 계정
                         navbarMember.innerHTML = `
                             <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
-                            <li class="navbar_login"><a href="http://10.0.1.100:80/admin/admin_man.html">회원정보</a></li>
+                            <li class="navbar_login"><a href="http://43.200.242.111:80/admin/admin_man.html">회원정보</a></li>
                         `;
                     } else {
                         // ✅ 일반 로그인 사용자
                         navbarMember.innerHTML = `
                             <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
-                            <li class="navbar_login"><a href="http://10.0.1.100:80/mypage/mypage.html">마이페이지</a></li>
+                            <li class="navbar_login"><a href="http://43.200.242.111:80/mypage/mypage.html">마이페이지</a></li>
                         `;
                     }
                 } else {
                     // ✅ 비로그인 상태
                     navbarMember.innerHTML = `
-                        <li class="navbar_signup"><a href="http://10.0.1.100:80/member/member_email.html">회원가입</a></li>
-                        <li class="navbar_login"><a href="http://10.0.1.100:80/member/member_login.html">로그인</a></li>
+                        <li class="navbar_signup"><a href="http://43.200.242.111:80/member/member_email.html">회원가입</a></li>
+                        <li class="navbar_login"><a href="http://43.200.242.111:80/member/member_login.html">로그인</a></li>
                     `;
                 }
             })
@@ -162,7 +162,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // ✅ `flight_id`가 없으면 목록 페이지로 이동
     if (!flightId) {
         alert("항공편 ID가 없습니다.");
-        window.location.href = "http://10.0.1.100:80/main/main_list.html";
+        window.location.href = "http://43.200.242.111:80/main/main_list.html";
         return;
     }
 
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             if (data.error) {
                 alert("항공편 정보를 찾을 수 없습니다.");
-                window.location.href = "http://10.0.1.100:80/main/main_list.html";
+                window.location.href = "http://43.200.242.111:80/main/main_list.html";
                 return;
             }
 

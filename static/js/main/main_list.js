@@ -14,20 +14,20 @@
                         // ✅ 관리자 계정
                         navbarMember.innerHTML = `
                             <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
-                            <li class="navbar_login"><a href="http://10.0.1.100:80/admin/admin_man.html">회원정보</a></li>
+                            <li class="navbar_login"><a href="http://43.200.242.111:80/admin/admin_man.html">회원정보</a></li>
                         `;
                     } else {
                         // ✅ 일반 로그인 사용자
                         navbarMember.innerHTML = `
                             <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
-                            <li class="navbar_login"><a href="http://10.0.1.100:80/mypage/mypage.html">마이페이지</a></li>
+                            <li class="navbar_login"><a href="http://43.200.242.111:80/mypage/mypage.html">마이페이지</a></li>
                         `;
                     }
                 } else {
                     // ✅ 비로그인 상태
                     navbarMember.innerHTML = `
-                        <li class="navbar_signup"><a href="http://10.0.1.100:80/member/member_email.html">회원가입</a></li>
-                        <li class="navbar_login"><a href="http://10.0.1.100:80/member/member_login.html">로그인</a></li>
+                        <li class="navbar_signup"><a href="http://43.200.242.111:80/member/member_email.html">회원가입</a></li>
+                        <li class="navbar_login"><a href="http://43.200.242.111:80/member/member_login.html">로그인</a></li>
                     `;
                 }
             })
@@ -149,7 +149,7 @@ document.querySelector(".submit-btn")?.addEventListener("click", function () {
                 console.log("API 응답 데이터:", data); // ✅ 응답 확인
 
                 // ✅ 응답 데이터 확인 후 페이지 이동
-                const redirectUrl = `http://10.0.1.100:80/main/main_list_detail.html?flight_id=${flightId}&passenger_count=${passengerCount}`;
+                const redirectUrl = `http://43.200.242.111:80/main/main_list_detail.html?flight_id=${flightId}&passenger_count=${passengerCount}`;
                 console.log("Redirecting to:", redirectUrl);
                 window.location.href = redirectUrl;
             })

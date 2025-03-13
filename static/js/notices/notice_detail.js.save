@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!noticeId) {
         alert("잘못된 접근입니다.");
-        window.location.href = "http://10.0.1.100:80/notices/notices.html";
+        window.location.href = "http://43.200.242.111:80/notices/notices.html";
         return;
     }
 
@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!noticeId) {
                 alert("잘못된 접근입니다.");
-                window.location.href = "http://10.0.1.100:80/notices/notices.html";
+                window.location.href = "http://43.200.242.111:80/notices/notices.html";
                 return;
             }
 
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 .then(data => {
                     if (data.error) {
                         alert(data.error);
-                        window.location.href = "http://10.0.1.100:80/notices/notices.html";
+                        window.location.href = "http://43.200.242.111:80/notices/notices.html";
                         return;
                     }
 
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const fileLink = document.createElement("a");
                         fileLink.href = data.file_url;
                         fileLink.download = "";
-                        fileLink.innerHTML = '<img src="http://10.0.1.100:80/static/images/file.png" width="20" height="15">';
+                        fileLink.innerHTML = '<img src="http://43.200.242.111:80/static/images/file.png" width="20" height="15">';
                         document.getElementById("notice_file").appendChild(fileLink);
                     }
                 })
@@ -174,7 +174,7 @@ fetch("http://10.0.3.150:5000/api/member/status")
                 .then(data => {
                     if (data.error) {
                         alert("공지사항을 찾을 수 없습니다.");
-                        window.location.href = "http://10.0.1.100:80/notices/notices.html";
+                        window.location.href = "http://43.200.242.111:80/notices/notices.html";
                         return;
                     }
 
@@ -205,5 +205,5 @@ fetch("http://10.0.3.150:5000/api/member/status")
         });
 
         function goBack() {
-            window.location.href = "http://10.0.1.100:80/notices/notices.html";
+            window.location.href = "http://43.200.242.111:80/notices/notices.html";
         }

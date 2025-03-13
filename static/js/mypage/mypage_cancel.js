@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
             console.log("📌 회원 탈퇴 응답:", data);
             if (data.success) {
                 alert("회원 탈퇴가 완료되었습니다.");
-                window.location.href = "http://10.0.1.100:80/main/main.html"; // 메인 페이지로 이동
+                window.location.href = "http://43.200.242.111:80/main/main.html"; // 메인 페이지로 이동
             } else {
                 errorMessage.textContent = data.error || "비밀번호가 일치하지 않습니다.";
                 errorMessage.style.display = "block";
