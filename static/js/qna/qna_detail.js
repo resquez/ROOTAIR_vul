@@ -4,7 +4,7 @@ console.log("qnaId:", qnaId);
 let currentUserId=null;
 // 네비게이션 스크립트
     document.addEventListener("DOMContentLoaded", function () {
-        fetch("http://192.168.1.101:5000/api/member/status", {
+        fetch("http://10.0.3.150:5000/api/member/status", {
                 method: "GET",
                 credentials:"include"
             })
@@ -18,21 +18,21 @@ let currentUserId=null;
                     if (data.is_admin) {
                         // ✅ 관리자 계정
                         navbarMember.innerHTML = `
-                            <li class="navbar_signup"><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-                            <li class="navbar_login"><a href="http://192.168.1.100:80/admin/admin_man.html">회원정보</a></li>
+                            <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                            <li class="navbar_login"><a href="http://10.0.1.100:80/admin/admin_man.html">회원정보</a></li>
                         `;
                     } else {
                         // ✅ 일반 로그인 사용자
                         navbarMember.innerHTML = `
-                            <li class="navbar_signup"><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-                            <li class="navbar_login"><a href="http://192.168.1.100:80/mypage/mypage.html">마이페이지</a></li>
+                            <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                            <li class="navbar_login"><a href="http://10.0.1.100:80/mypage/mypage.html">마이페이지</a></li>
                         `;
                     }
                 } else {
                     // ✅ 비로그인 상태
                     navbarMember.innerHTML = `
-                        <li class="navbar_signup"><a href="http://192.168.1.100:80/member/member_email.html">회원가입</a></li>
-                        <li class="navbar_login"><a href="http://192.168.1.100:80/member/member_login.html">로그인</a></li>
+                        <li class="navbar_signup"><a href="http://10.0.1.100:80/member/member_email.html">회원가입</a></li>
+                        <li class="navbar_login"><a href="http://10.0.1.100:80/member/member_login.html">로그인</a></li>
                     `;
                 }
 		loadQnaDetail();
@@ -50,7 +50,7 @@ function loadQnaDetail() {
         return;
     }
 
-    fetch(`http://192.168.1.101:5000/api/qna/detail/${qnaId}`, {
+    fetch(`http://10.0.3.150:5000/api/qna/detail/${qnaId}`, {
         method: "GET",
         credentials: "include"
     })
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const adminReplyContainer = document.getElementById("admin_reply_container");
 
     // 관리자 확인 (기존 코드)
-    fetch("http://192.168.1.101:5000/api/member/status", {  // 관리자 여부 체크
+    fetch("http://10.0.3.150:5000/api/member/status", {  // 관리자 여부 체크
             method: "GET",
             credentials: "include"
         })
@@ -127,7 +127,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // GET 요청을 통해 DB에서 댓글을 불러와서 표시
     function loadComment(qnaId) {
-        fetch(`http://192.168.1.101:5000/api/qna/${qnaId}`)  // 댓글을 불러오는 GET 요청
+        fetch(`http://10.0.3.150:5000/api/qna/${qnaId}`)  // 댓글을 불러오는 GET 요청
             .then(response => response.json())
             .then(data => {
                 if (data.comment) {
@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            fetch(`http://192.168.1.101:5000/api/qna/comment/${qnaId}`, {
+            fetch(`http://10.0.3.150:5000/api/qna/comment/${qnaId}`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ comment: comment })
@@ -183,14 +183,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 return;
             }
 
-            fetch(`http://192.168.1.101:5000/api/qna/delete/${qnaId}`, {
+            fetch(`http://10.0.3.150:5000/api/qna/delete/${qnaId}`, {
                 method: "DELETE"
             })
             .then(response => response.json())
             .then(data => {
                 if (data.message) {
                     alert(data.message);
-		   window.location.href = "http://192.168.1.100:80/qna/qna.html";
+		   window.location.href = "http://10.0.1.100:80/qna/qna.html";
                 } else {
                     alert("삭제 실패: " + (data.error || "알 수 없는 오류"));
                 }
@@ -213,7 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (backBtn) {
         backBtn.addEventListener("click", function () {
-            window.location.href = "http://192.168.1.100:80/qna/qna.html";  // ✅ 목록 페이지 URL로 변경
+            window.location.href = "http://10.0.1.100:80/qna/qna.html";  // ✅ 목록 페이지 URL로 변경
         });
     }
 });

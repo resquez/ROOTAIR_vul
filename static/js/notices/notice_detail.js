@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 // ✅ 사용자 로그인 상태 및 관리자 여부 가져오기
 async function fetchUserStatus() {
     try {
-        const response = await fetch("http://192.168.1.101:5000/api/member/status", {
+        const response = await fetch("http://10.0.3.150:5000/api/member/status", {
             method: "GET",
             credentials: "include"
         });
@@ -57,14 +57,14 @@ function updateNavbar(userData) {
 
     if (userData.is_authenticated) {
         navbarMember.innerHTML = userData.is_admin
-            ? `<li class="navbar_signup"><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-               <li class="navbar_login"><a href="http://192.168.1.100:80/admin/admin_man.html">회원정보</a></li>`
-            : `<li class="navbar_signup"><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-               <li class="navbar_login"><a href="http://192.168.1.100:80/mypage/mypage.html">마이페이지</a></li>`;
+            ? `<li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+               <li class="navbar_login"><a href="http://10.0.1.100:80/admin/admin_man.html">회원정보</a></li>`
+            : `<li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+               <li class="navbar_login"><a href="http://10.0.1.100:80/mypage/mypage.html">마이페이지</a></li>`;
     } else {
         navbarMember.innerHTML = `
-            <li class="navbar_signup"><a href="http://192.168.1.100:80/member/member_email.html">회원가입</a></li>
-            <li class="navbar_login"><a href="http://192.168.1.100:80/member/member_login.html">로그인</a></li>
+            <li class="navbar_signup"><a href="http://10.0.1.100:80/member/member_email.html">회원가입</a></li>
+            <li class="navbar_login"><a href="http://10.0.1.100:80/member/member_login.html">로그인</a></li>
         `;
     }
 }
@@ -73,7 +73,7 @@ function updateNavbar(userData) {
 function fetchNoticeDetail(noticeId) {
     console.log(`📌 공지사항 ID: ${noticeId} 데이터 요청`);
 
-    fetch(`http://192.168.1.101:5000/api/notices/detail/${noticeId}`)
+    fetch(`http://10.0.3.150:5000/api/notices/detail/${noticeId}`)
         .then(response => response.json())
         .then(data => {
             if (data.error) {
@@ -128,7 +128,7 @@ function deleteNotice(event) {
 
     if (!confirm("정말로 이 공지사항을 삭제하시겠습니까?")) return;
 
-    fetch(`http://192.168.1.101:5000/api/notices/delete/${noticeId}`, {
+    fetch(`http://10.0.3.150:5000/api/notices/delete/${noticeId}`, {
         method: "DELETE",
         credentials: "include"
     })

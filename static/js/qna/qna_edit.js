@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ 가져온 qnaId:", qnaId);
     if (!qnaId) {
         alert("문의사항 ID가 없습니다.");
-        //window.location.href = "http://192.168.1.100:80/qna/qna.html";
+        //window.location.href = "http://10.0.1.100:80/qna/qna.html";
         return;
     }
 
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     form.setAttribute("data-qna-id", qnaId);
 
     // ✅ 문의사항 상세 조회
-    fetch(`http://192.168.1.101:5000/api/qna/detail/${qnaId}`, {
+    fetch(`http://10.0.3.150:5000/api/qna/detail/${qnaId}`, {
 	method: "GET",
     	credentials: "include" 
     })
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             if (data.error) {
                 alert("문의사항을 찾을 수 없습니다.");
-               // window.location.href = "http://192.168.1.100:80/qna/qna.html";
+               // window.location.href = "http://10.0.1.100:80/qna/qna.html";
                 return;
             }
 
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
             formData.append("file", fileInput.files[0]);
         }
 
-        fetch(`http://192.168.1.101:5000/api/qna/edit/${qnaId}`, {
+        fetch(`http://10.0.3.150:5000/api/qna/edit/${qnaId}`, {
             method: "POST",
             body: formData,
             credentials: "include"
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 if (data.message) {
                     alert(data.message);
-                    window.location.href = "http://192.168.1.100:80/qna/qna.html";
+                    window.location.href = "http://10.0.1.100:80/qna/qna.html";
                 } else {
                     alert("문의 등록 실패: " + data.error);
                 }

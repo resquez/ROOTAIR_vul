@@ -5,7 +5,7 @@ function fetchNotices(page = 1) {
     console.log(`📌 fetchNotices 실행됨 (현재 페이지: ${page})`);
     currentPage = page;  // 🔹 현재 페이지 유지
 
-    fetch(`http://192.168.1.101:5000/api/notices/list?page=${page}`)
+    fetch(`http://10.0.3.150:5000/api/notices/list?page=${page}`)
         .then(response => response.json())
         .then(data => {
             console.log("📌 공지사항 데이터 수신:", data);
@@ -28,7 +28,7 @@ function displayNotices(notices) {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>📢 공지사항</td>
-            <td><a href="http://192.168.1.100:80/notices/notice_detail.html?notice_id=${notice.notice_id}" class="notice_link">
+            <td><a href="http://10.0.1.100:80/notices/notice_detail.html?notice_id=${notice.notice_id}" class="notice_link">
                 ${notice.title}
             </a></td>
             <td>${notice.created_at.split("T")[0]}</td>
@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     document.getElementById("nextPage").addEventListener("click", () => {
-        fetch(`http://192.168.1.101:5000/api/notices/list?page=${currentPage + 1}`)
+        fetch(`http://10.0.3.150:5000/api/notices/list?page=${currentPage + 1}`)
             .then(response => response.json())
             .then(data => {
                 if (data.notices.length > 0) {
@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function checkAdminStatus() {
     console.log("✅ checkAdminStatus 실행됨");
 
-    fetch("http://192.168.1.101:5000/api/member/status", {
+    fetch("http://10.0.3.150:5000/api/member/status", {
         method: "GET",
         credentials: "include"
     })
@@ -132,7 +132,7 @@ function checkAdminStatus() {
 
 // ✅ 사용자 상태 확인 및 네비게이션 업데이트
 function updateNavbar() {
-    fetch("http://192.168.1.101:5000/api/member/status", {
+    fetch("http://10.0.3.150:5000/api/member/status", {
         method: "GET",
         credentials: "include"
     })
@@ -150,19 +150,19 @@ function updateNavbar() {
         if (data.is_authenticated) {
             if (data.is_admin) {
                 navbarMember.innerHTML = `
-                    <li class="navbar_signup"><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-                    <li class="navbar_login"><a href="http://192.168.1.100:80/admin/admin_man.html">회원정보</a></li>
+                    <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                    <li class="navbar_login"><a href="http://10.0.1.100:80/admin/admin_man.html">회원정보</a></li>
                 `;
             } else {
                 navbarMember.innerHTML = `
-                    <li class="navbar_signup"><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-                    <li class="navbar_login"><a href="http://192.168.1.100:80/mypage/mypage.html">마이페이지</a></li>
+                    <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                    <li class="navbar_login"><a href="http://10.0.1.100:80/mypage/mypage.html">마이페이지</a></li>
                 `;
             }
         } else {
             navbarMember.innerHTML = `
-                <li class="navbar_signup"><a href="http://192.168.1.100:80/member/member_email.html">회원가입</a></li>
-                <li class="navbar_login"><a href="http://192.168.1.100:80/member/member_login.html">로그인</a></li>
+                <li class="navbar_signup"><a href="http://10.0.1.100:80/member/member_email.html">회원가입</a></li>
+                <li class="navbar_login"><a href="http://10.0.1.100:80/member/member_login.html">로그인</a></li>
             `;
         }
     })

@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // ✅ 사용자 정보 불러오기
     function loadUserInfo() {
-        fetch("http://192.168.1.101:5000/api/mypage/user_info", {
+        fetch("http://10.0.3.150:5000/api/mypage/user_info", {
             method: "GET",
             credentials: "include"
         })
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             console.log("📌 비밀번호 확인 요청 시작...");
-            fetch("http://192.168.1.101:5000/api/mypage/verify_password", {
+            fetch("http://10.0.3.150:5000/api/mypage/verify_password", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             // ✅ 서버로 회원정보 업데이트 요청
-            fetch("http://192.168.1.101:5000/api/mypage/update", {
+            fetch("http://10.0.3.150:5000/api/mypage/update", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 credentials: "include",
@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("📌 회원정보 수정 응답:", data);
                 if (data.success) {
                     alert("회원정보가 성공적으로 업데이트되었습니다.");
-                    window.location.href = "http://192.168.1.100:80/mypage/mypage.html";  // ✅ 마이페이지로 이동
+                    window.location.href = "http://10.0.1.100:80/mypage/mypage.html";  // ✅ 마이페이지로 이동
                 } else {
                     alert("업데이트 실패: " + data.message);
                 }

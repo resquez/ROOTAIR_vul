@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!noticeId) {
         alert("잘못된 접근입니다.");
-        window.location.href = "http://192.168.1.100:80/notices/notices.html";
+        window.location.href = "http://10.0.1.100:80/notices/notices.html";
         return;
     }
 
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const editBtnContainer = document.getElementById("editButtonContainer");
     const deleteBtnContainer = document.getElementById("deleteButtonContainer");
 
-    fetch("http://192.168.1.101:5000/api/member/status", {
+    fetch("http://10.0.3.150:5000/api/member/status", {
         method: "GET",
         credentials: "include"
     })
@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch(error => console.error("🚨 사용자 상태 확인 중 오류 발생:", error));
 
-    fetch(`http://192.168.1.101:5000/api/notices/detail/${noticeId}`)
+    fetch(`http://10.0.3.150:5000/api/notices/detail/${noticeId}`)
     .then(response => {
         if (!response.ok) {
             console.error(`❌ 공지사항 API 오류 (${response.status}):`, response.statusText);
@@ -88,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             if (confirm("정말 삭제하시겠습니까?")) {
-                fetch(`http://192.168.1.101:5000/api/notices/delete/${noticeId}`, {
+                fetch(`http://10.0.3.150:5000/api/notices/delete/${noticeId}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json"
@@ -117,16 +117,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!noticeId) {
                 alert("잘못된 접근입니다.");
-                window.location.href = "http://192.168.1.100:80/notices/notices.html";
+                window.location.href = "http://10.0.1.100:80/notices/notices.html";
                 return;
             }
 
-            fetch(`http://192.168.1.101:5000/api/notices/detail/${noticeId}`)
+            fetch(`http://10.0.3.150:5000/api/notices/detail/${noticeId}`)
                 .then(response => response.json())
                 .then(data => {
                     if (data.error) {
                         alert(data.error);
-                        window.location.href = "http://192.168.1.100:80/notices/notices.html";
+                        window.location.href = "http://10.0.1.100:80/notices/notices.html";
                         return;
                     }
 
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         const fileLink = document.createElement("a");
                         fileLink.href = data.file_url;
                         fileLink.download = "";
-                        fileLink.innerHTML = '<img src="http://192.168.1.100:80/static/images/file.png" width="20" height="15">';
+                        fileLink.innerHTML = '<img src="http://10.0.1.100:80/static/images/file.png" width="20" height="15">';
                         document.getElementById("notice_file").appendChild(fileLink);
                     }
                 })
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
             // ✅ 로그인한 사용자 정보 확인 (관리자 여부)
-fetch("http://192.168.1.101:5000/api/member/status")
+fetch("http://10.0.3.150:5000/api/member/status")
                 .then(response => response.json())
                 .then(data => {
                     if (data.is_authenticated && data.is_admin) {
@@ -162,7 +162,7 @@ fetch("http://192.168.1.101:5000/api/member/status")
 	    document.addEventListener("DOMContentLoaded", function () {
             const pathParts = window.location.pathname.split('/');
             const noticeId = pathParts[pathParts.length -1];
-            const apiUrl = `http://192.168.1.101:5000/api/notices/detail/${noticeId}`;
+            const apiUrl = `http://10.0.3.150:5000/api/notices/detail/${noticeId}`;
 
             if (!noticeId) {
                 alert("공지사항 ID가 없습니다.");
@@ -174,7 +174,7 @@ fetch("http://192.168.1.101:5000/api/member/status")
                 .then(data => {
                     if (data.error) {
                         alert("공지사항을 찾을 수 없습니다.");
-                        window.location.href = "http://192.168.1.100:80/notices/notices.html";
+                        window.location.href = "http://10.0.1.100:80/notices/notices.html";
                         return;
                     }
 
@@ -189,7 +189,7 @@ fetch("http://192.168.1.101:5000/api/member/status")
                     }
 
                     // 관리자 계정 여부 확인 (세션 상태 체크)
-                    fetch("http://192.168.1.101:5000/api/member/status")
+                    fetch("http://10.0.3.150:5000/api/member/status")
                         .then(response => response.json())
                         .then(userData => {
                             if (userData.is_authenticated && userData.is_admin) {
@@ -205,5 +205,5 @@ fetch("http://192.168.1.101:5000/api/member/status")
         });
 
         function goBack() {
-            window.location.href = "http://192.168.1.100:80/notices/notices.html";
+            window.location.href = "http://10.0.1.100:80/notices/notices.html";
         }

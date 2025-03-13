@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /** ✅ 네비게이션바 로그인 상태 업데이트 */
     function updateNavbar() {
-        fetch("http://192.168.1.101:5000/api/member/status", {
+        fetch("http://10.0.3.150:5000/api/member/status", {
             credentials: "include" // ✅ 쿠키 포함
         })
         .then(response => response.json())
@@ -26,13 +26,13 @@ document.addEventListener("DOMContentLoaded", function () {
             navbarMember.innerHTML = ""; // 기존 내용 초기화
             if (data.is_authenticated) {
                 navbarMember.innerHTML = data.is_admin
-                    ? `<li><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-                       <li><a href="http://192.168.1.100:80/admin/admin_man.html">회원정보</a></li>`
-                    : `<li><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-                       <li><a href="http://192.168.1.100:80/mypage/mypage.html">마이페이지</a></li>`;
+                    ? `<li><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                       <li><a href="http://10.0.1.100:80/admin/admin_man.html">회원정보</a></li>`
+                    : `<li><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                       <li><a href="http://10.0.1.100:80/mypage/mypage.html">마이페이지</a></li>`;
             } else {
-                navbarMember.innerHTML = `<li><a href="http://192.168.1.100:80/member/member_signup.html">회원가입</a></li>
-                                          <li><a href="http://192.168.1.100:80/member/member_login.html">로그인</a></li>`;
+                navbarMember.innerHTML = `<li><a href="http://10.0.1.100:80/member/member_signup.html">회원가입</a></li>
+                                          <li><a href="http://10.0.1.100:80/member/member_login.html">로그인</a></li>`;
             }
         })
         .catch(error => console.error("사용자 상태 확인 중 오류 발생:", error));
@@ -45,11 +45,11 @@ document.addEventListener("DOMContentLoaded", function () {
         emailInput.value = verifiedEmail;
     } else {
         alert("이메일 인증이 필요합니다.");
-        window.location.href = "http://192.168.1.100:80/member/member_email.html";
+        window.location.href = "http://10.0.1.100:80/member/member_email.html";
     }
 
     // /** ✅ 이메일 인증 후 자동 입력 */
-    // fetch("http://192.168.1.101:5000/api/member/get_verified_email", {
+    // fetch("http://10.0.3.150:5000/api/member/get_verified_email", {
     //     method: "GET",
     //     credentials: "include"
     // })
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //         document.getElementById("email").value = data.email;
     //     } else {
     //         alert("이메일 인증이 필요합니다.");
-    //         window.location.href = "http://192.168.1.100:80/member/member_email.html";
+    //         window.location.href = "http://10.0.1.100:80/member/member_email.html";
     //     }
     // })
     // .catch(error => console.error("이메일 확인 오류:", error));
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        fetch("http://192.168.1.101:5000/api/member/check-id", {
+        fetch("http://10.0.3.150:5000/api/member/check-id", {
             method: "POST",
             credentials: "include", // ✅ 쿠키 포함
             headers: { "Content-Type": "application/json" },
@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
             email: emailInput.value
         };
 
-        fetch("http://192.168.1.101:5000/api/member/signup", {
+        fetch("http://10.0.3.150:5000/api/member/signup", {
             method: "POST",
             credentials: "include", // ✅ 쿠키 포함
             headers: { "Content-Type": "application/json" },
@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // ✅ 회원가입 완료 후 localStorage에서 이메일 삭제
                 localStorage.removeItem("verified_email");
 
-                window.location.href = "http://192.168.1.100:80/member/member_login.html";
+                window.location.href = "http://10.0.1.100:80/member/member_login.html";
             } else {
                 alert("회원가입 실패: " + data.error);
             }
@@ -163,14 +163,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     /** ✅ 로그아웃 기능 */
     document.getElementById("logoutButton").addEventListener("click", function () {
-        fetch("http://192.168.1.101:5000/api/member/logout", {
+        fetch("http://10.0.3.150:5000/api/member/logout", {
             method: "POST",
             credentials: "include"
         })
         .then(response => response.json())
         .then(data => {
             alert(data.message);
-            window.location.href = "http://192.168.1.100:80/main/main.html";
+            window.location.href = "http://10.0.1.100:80/main/main.html";
         })
         .catch(error => console.error("로그아웃 오류:", error));
     });

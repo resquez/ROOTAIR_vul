@@ -1,6 +1,6 @@
 // 네비게이션 스크립트
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://192.168.1.101:5000/api/member/status", {
+    fetch("http://10.0.3.150:5000/api/member/status", {
             mcdethod: "GET",
             credentials:"include"
         })
@@ -12,21 +12,21 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (data.is_admin) {
                     // ✅ 관리자 계정
                     navbarMember.innerHTML = `
-                        <li class="navbar_signup"><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-                        <li class="navbar_login"><a href="http://192.168.1.100:80/admin/admin_man.html">회원정보</a></li>
+                        <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                        <li class="navbar_login"><a href="http://10.0.1.100:80/admin/admin_man.html">회원정보</a></li>
                     `;
                 } else {
                     // ✅ 일반 로그인 사용자
                     navbarMember.innerHTML = `
-                        <li class="navbar_signup"><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-                        <li class="navbar_login"><a href="http://192.168.1.100:80/mypage/mypage.html">마이페이지</a></li>
+                        <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                        <li class="navbar_login"><a href="http://10.0.1.100:80/mypage/mypage.html">마이페이지</a></li>
                     `;
                 }
             } else {
                 // ✅ 비로그인 상태
                 navbarMember.innerHTML = `
-                    <li class="navbar_signup"><a href="http://192.168.1.100:80/member/member_email.html">회원가입</a></li>
-                    <li class="navbar_login"><a href="http://192.168.1.100:80/member/member_login.html">로그인</a></li>
+                    <li class="navbar_signup"><a href="http://10.0.1.100:80/member/member_email.html">회원가입</a></li>
+                    <li class="navbar_login"><a href="http://10.0.1.100:80/member/member_login.html">로그인</a></li>
                 `;
             }
         })
@@ -44,7 +44,7 @@ async function requestResetCode() {
         return;
     }
 
-    const response = await fetch('http://192.168.1.101:5000/api/member/request-reset-code', {  // ✅ 엔드포인트 변경
+    const response = await fetch('http://10.0.3.150:5000/api/member/request-reset-code', {  // ✅ 엔드포인트 변경
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ user_id: userId }),
@@ -69,7 +69,7 @@ async function verifyResetCode() {
         return;
     }
 
-    const response = await fetch('http://192.168.1.101:5000/api/member/verify-reset-code', {  // ✅ 엔드포인트 변경
+    const response = await fetch('http://10.0.3.150:5000/api/member/verify-reset-code', {  // ✅ 엔드포인트 변경
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ otp }),
@@ -138,7 +138,7 @@ document.getElementById("step3_form").addEventListener("submit", resetPassword);
 // 전송
 async function sendnewpassword(newPassword) {
     try {
-        const response = await fetch('http://192.168.1.101:5000/api/member/reset-password', {  // ✅ 엔드포인트 변경
+        const response = await fetch('http://10.0.3.150:5000/api/member/reset-password', {  // ✅ 엔드포인트 변경
             method: 'POST',
             headers: { 'Content-Type': 'application/json',
                         'Accept': 'application/json'

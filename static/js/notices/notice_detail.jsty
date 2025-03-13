@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    fetch("http://192.168.1.101:5000/api/member/status", {
+    fetch("http://10.0.3.150:5000/api/member/status", {
         method: "GET",
         credentials: "include"
     })
@@ -12,21 +12,21 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.is_admin) {
                 // ✅ 관리자 계정
                 navbarMember.innerHTML = `
-                    <li class="navbar_signup"><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-                    <li class="navbar_login"><a href="http://192.168.1.100:80/admin/admin_man.html">회원정보</a></li>
+                    <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                    <li class="navbar_login"><a href="http://10.0.1.100:80/admin/admin_man.html">회원정보</a></li>
                 `;
             } else {
                 // ✅ 일반 로그인 사용자
                 navbarMember.innerHTML = `
-                    <li class="navbar_signup"><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li>
-                    <li class="navbar_login"><a href="http://192.168.1.100:80/mypage/mypage.html">마이페이지</a></li>
+                    <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
+                    <li class="navbar_login"><a href="http://10.0.1.100:80/mypage/mypage.html">마이페이지</a></li>
                 `;
             }
         } else {
             // ✅ 비로그인 상태
             navbarMember.innerHTML = `
-                <li class="navbar_signup"><a href="http://192.168.1.100:80/member/member_email.html">회원가입</a></li>
-                <li class="navbar_login"><a href="http://192.168.1.100:80/member/member_login.html">로그인</a></li>
+                <li class="navbar_signup"><a href="http://10.0.1.100:80/member/member_email.html">회원가입</a></li>
+                <li class="navbar_login"><a href="http://10.0.1.100:80/member/member_login.html">로그인</a></li>
             `;
         }
     })
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (deleteBtn) deleteBtn.setAttribute("data-notice-id", noticeId);
 
     // ✅ 사용자 상태 확인 (관리자 여부)
-    fetch("http://192.168.1.101:5000/api/member/status", {
+    fetch("http://10.0.3.150:5000/api/member/status", {
         method: "GET",
         credentials: "include"
     })
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     .catch(error => console.error("사용자 상태 확인 중 오류 발생:", error));
 
     // ✅ 공지사항 상세 데이터를 API에서 가져오기
-    fetch(`http://192.168.1.101:5000/api/notices/detail/${noticeId}`)
+    fetch(`http://10.0.3.150:5000/api/notices/detail/${noticeId}`)
     .then(response => response.json())
     .then(data => {
         if (data.error) {
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 테스트 
-fetch(`http://192.168.1.101:5000/api/notices/detail/${noticeId}`)
+fetch(`http://10.0.3.150:5000/api/notices/detail/${noticeId}`)
     .then(response => response.json())
     .then(data => {
         console.log("API 응답 데이터:", data); // 전체 데이터 확인
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             if (confirm("정말 삭제하시겠습니까?")) {
-                fetch(`http://192.168.1.101:5000/api/notices/delete/${noticeId}`, {
+                fetch(`http://10.0.3.150:5000/api/notices/delete/${noticeId}`, {
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json"

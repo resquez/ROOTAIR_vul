@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const editProfileBtn = document.getElementById("editProfileBtn");
     if (editProfileBtn) {
         editProfileBtn.addEventListener("click", function () {
-            fetch("http://192.168.1.101:5000/api/mypage/edit", {
+            fetch("http://10.0.3.150:5000/api/mypage/edit", {
                 method: "GET",
                 credentials: "include",
                 mode: "cors"
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const deleteAccountBtn = document.getElementById("deleteAccountBtn");
     if (deleteAccountBtn) {
         deleteAccountBtn.addEventListener("click", function () {
-            window.location.href = "http://192.168.1.100:80/mypage/mypage_cancel.html";
+            window.location.href = "http://10.0.1.100:80/mypage/mypage_cancel.html";
         });
     }
 });
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
  * ✅ 로그인 상태 확인 및 네비게이션 바 업데이트
  */
 function checkLoginStatus() {
-    fetch("http://192.168.1.101:5000/api/member/status", {
+    fetch("http://10.0.3.150:5000/api/member/status", {
         method: "GET",
         credentials: "include",
         mode: "cors"
@@ -49,13 +49,13 @@ function checkLoginStatus() {
 
         if (data.is_authenticated) {
             navbarMember.innerHTML = `
-               <li class="navbar_signup"><a href="http://192.168.1.101:5000/api/member/logout">로그아웃</a></li> 
-	       <li class="navbar_login"<a href="http://192.168.1.100:80/mypage/mypage.html">마이페이지</a></li>
+               <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li> 
+	       <li class="navbar_login"<a href="http://10.0.1.100:80/mypage/mypage.html">마이페이지</a></li>
             `;
         } else {
             navbarMember.innerHTML = `
-               <li class="navbar_signup"><a href="http://192.168.1.100:80/member/member_email.html">회원가입</a></li>
-               <li class="navbar_login"><a href="http://192.168.1.100:80/member/member_login.html">로그인</a></li>
+               <li class="navbar_signup"><a href="http://10.0.1.100:80/member/member_email.html">회원가입</a></li>
+               <li class="navbar_login"><a href="http://10.0.1.100:80/member/member_login.html">로그인</a></li>
             `;
         }
     })
@@ -66,7 +66,7 @@ function checkLoginStatus() {
  * ✅ 사용자 정보 가져오기 및 UI 업데이트
  */
 function loadUserInfo() {
-    fetch("http://192.168.1.101:5000/api/mypage", {
+    fetch("http://10.0.3.150:5000/api/mypage", {
         method: "GET",
         credentials: "include",
         mode: "cors"
@@ -75,7 +75,7 @@ function loadUserInfo() {
     .then(data => {
         if (!data.user) {
             alert("사용자 정보를 불러올 수 없습니다. 로그인 상태를 확인하세요.");
-            window.location.href = "http://192.168.1.100:80/member/member_login.html";
+            window.location.href = "http://10.0.1.100:80/member/member_login.html";
             return;
         }
 
@@ -95,7 +95,7 @@ function loadUserInfo() {
  */
 async function generateTickets() {
     try {
-        const response = await fetch("http://192.168.1.101:5000/api/mypage/get_tickets", {
+        const response = await fetch("http://10.0.3.150:5000/api/mypage/get_tickets", {
             method: "GET",
             credentials: "include",
             mode: "cors"
