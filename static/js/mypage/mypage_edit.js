@@ -137,7 +137,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log("📌 회원정보 수정 응답:", data);
                 if (data.success) {
                     alert("회원정보가 성공적으로 업데이트되었습니다.");
-                    window.location.href = "http://10.0.1.100:80/mypage/mypage.html";  // ✅ 마이페이지로 이동
+                    window.location.href = "http://43.200.242.111:80/mypage/mypage.html";  // ✅ 마이페이지로 이동
                 } else {
                     alert("업데이트 실패: " + data.message);
                 }

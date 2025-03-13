@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("✅ 가져온 qnaId:", qnaId);
     if (!qnaId) {
         alert("문의사항 ID가 없습니다.");
-        //window.location.href = "http://10.0.1.100:80/qna/qna.html";
+        //window.location.href = "http://43.200.242.111:80/qna/qna.html";
         return;
     }
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(data => {
             if (data.error) {
                 alert("문의사항을 찾을 수 없습니다.");
-               // window.location.href = "http://10.0.1.100:80/qna/qna.html";
+               // window.location.href = "http://43.200.242.111:80/qna/qna.html";
                 return;
             }
 
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(data => {
                 if (data.message) {
                     alert(data.message);
-                    window.location.href = "http://10.0.1.100:80/qna/qna.html";
+                    window.location.href = "http://43.200.242.111:80/qna/qna.html";
                 } else {
                     alert("문의 등록 실패: " + data.error);
                 }

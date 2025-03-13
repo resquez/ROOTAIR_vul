@@ -29,12 +29,12 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.is_authenticated) {
                 navbarMember.innerHTML = data.is_admin
                     ? `<li><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
-                       <li><a href="http://10.0.1.100:80/admin/admin_man.html">회원정보</a></li>`
+                       <li><a href="http://43.200.242.111:80/admin/admin_man.html">회원정보</a></li>`
                     : `<li><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
-                       <li><a href="http://10.0.1.100:80/mypage/mypage.html">마이페이지</a></li>`;
+                       <li><a href="http://43.200.242.111:80/mypage/mypage.html">마이페이지</a></li>`;
             } else {
-                navbarMember.innerHTML = `<li><a href="http://10.0.1.100:80/member/member_signup.html">회원가입</a></li>
-                                          <li><a href="http://10.0.1.100:80/member/member_login.html">로그인</a></li>`;
+                navbarMember.innerHTML = `<li><a href="http://43.200.242.111:80/member/member_signup.html">회원가입</a></li>
+                                          <li><a href="http://43.200.242.111:80/member/member_login.html">로그인</a></li>`;
             }
         })
         .catch(error => console.error("사용자 상태 확인 중 오류 발생:", error));
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById("email").value = data.email;
         } else {
             alert("이메일 인증이 필요합니다.");
-            window.location.href = "http://10.0.1.100:80/member/member_email.html";
+            window.location.href = "http://43.200.242.111:80/member/member_email.html";
         }
     })
     .catch(error => console.error("이메일 확인 오류:", error));
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.message) {
                 alert("회원가입 성공!");
                 document.cookie = "email_verified=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-                window.location.href = "http://10.0.1.100:80/member/member_login.html";
+                window.location.href = "http://43.200.242.111:80/member/member_login.html";
             } else {
                 alert("회원가입 실패: " + data.error);
             }

@@ -28,7 +28,7 @@ function displayNotices(notices) {
         const row = document.createElement("tr");
         row.innerHTML = `
             <td>📢 공지사항</td>
-            <td><a href="http://10.0.1.100:80/notices/notice_detail.html?notice_id=${notice.notice_id}" class="notice_link">
+            <td><a href="http://43.200.242.111:80/notices/notice_detail.html?notice_id=${notice.notice_id}" class="notice_link">
                 ${notice.title}
             </a></td>
             <td>${notice.created_at.split("T")[0]}</td>
@@ -151,18 +151,18 @@ function updateNavbar() {
             if (data.is_admin) {
                 navbarMember.innerHTML = `
                     <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
-                    <li class="navbar_login"><a href="http://10.0.1.100:80/admin/admin_man.html">회원정보</a></li>
+                    <li class="navbar_login"><a href="http://43.200.242.111:80/admin/admin_man.html">회원정보</a></li>
                 `;
             } else {
                 navbarMember.innerHTML = `
                     <li class="navbar_signup"><a href="http://10.0.3.150:5000/api/member/logout">로그아웃</a></li>
-                    <li class="navbar_login"><a href="http://10.0.1.100:80/mypage/mypage.html">마이페이지</a></li>
+                    <li class="navbar_login"><a href="http://43.200.242.111:80/mypage/mypage.html">마이페이지</a></li>
                 `;
             }
         } else {
             navbarMember.innerHTML = `
-                <li class="navbar_signup"><a href="http://10.0.1.100:80/member/member_email.html">회원가입</a></li>
-                <li class="navbar_login"><a href="http://10.0.1.100:80/member/member_login.html">로그인</a></li>
+                <li class="navbar_signup"><a href="http://43.200.242.111:80/member/member_email.html">회원가입</a></li>
+                <li class="navbar_login"><a href="http://43.200.242.111:80/member/member_login.html">로그인</a></li>
             `;
         }
     })
