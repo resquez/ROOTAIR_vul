@@ -148,7 +148,7 @@ def qna_detail_api(qna_id):
     file_url = None
     if qna['file']:
         filename=os.path.basename(qna['file'])
-        file_url = f"http://10.0.3.150:5000/api/qna/download/{filename}" 
+        file_url = f"http://43.200.242.111/api/qna/download/{filename}" 
 
     return jsonify({
         'qna_id': qna['qna_id'],
@@ -210,7 +210,7 @@ def qna_create_api():
         filename=file.filename
         file_path = os.path.join(UPLOAD_FOLDER,filename)
         file.save(file_path)
-        file_url = f"http://10.0.3.150:5000/api/qna/download/{filename}"
+        file_url = f"http://43.200.242.111/api/qna/download/{filename}"
     else:
         file_url=None
 
@@ -278,7 +278,7 @@ def qna_edit_api(qna_id):
         filename = file.filename  # 원본 파일명 유지
         save_path = os.path.join(UPLOAD_FOLDER,filename)
         file.save(save_path)
-        file_url = f"http://10.0.3.150:5000/api/qna/download/{filename}"  # 새로운 파일 저장
+        file_url = f"http://43.200.242.111/api/qna/download/{filename}"  # 새로운 파일 저장
     else:
         file_url=existing_file
 
