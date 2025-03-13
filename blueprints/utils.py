@@ -3,7 +3,7 @@ import pymysql
 # 📌 MySQL 연결 함수 (모든 API에서 재사용 가능)
 def get_db_connection():
     return pymysql.connect(
-        host='192.168.0.162',
+        host='10.0.3.200',
         user='rootair',
         password='1234',
         database='Flight_DB',

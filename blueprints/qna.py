@@ -148,7 +148,7 @@ def qna_detail_api(qna_id):
     file_url = None
     if qna['file']:
         filename=os.path.basename(qna['file'])
-        file_url = f"http://192.168.1.101:5000/api/qna/download/{filename}" 
+        file_url = f"http://10.0.3.150:5000/api/qna/download/{filename}" 
 
     return jsonify({
         'qna_id': qna['qna_id'],
@@ -210,7 +210,7 @@ def qna_create_api():
         filename=file.filename
         file_path = os.path.join(UPLOAD_FOLDER,filename)
         file.save(file_path)
-        file_url = f"http://192.168.1.101:5000/api/qna/download/{filename}"
+        file_url = f"http://10.0.3.150:5000/api/qna/download/{filename}"
     else:
         file_url=None
 
@@ -232,7 +232,7 @@ def qna_create_api():
     return jsonify({
         'message': '문의사항이 성공적으로 등록되었습니다.', 
         # 'redirect_url': url_for('qna.qna_api')
-        'redirect_url': "http://192.168.1.100:80/qna/qna.html"
+        'redirect_url': "http://10.0.1.100:80/qna/qna.html"
     })
 
 # 📌 문의사항 수정 API (POST 요청)
@@ -278,7 +278,7 @@ def qna_edit_api(qna_id):
         filename = file.filename  # 원본 파일명 유지
         save_path = os.path.join(UPLOAD_FOLDER,filename)
         file.save(save_path)
-        file_url = f"http://192.168.1.101:5000/api/qna/download/{filename}"  # 새로운 파일 저장
+        file_url = f"http://10.0.3.150:5000/api/qna/download/{filename}"  # 새로운 파일 저장
     else:
         file_url=existing_file
 

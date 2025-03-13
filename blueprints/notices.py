@@ -58,7 +58,7 @@ def notice_detail_api(notice_id):
     file_url = None
     if notice['file']:
         filename=os.path.basename(notice['file'])
-        file_url = f"http://192.168.1.101:5000/api/notices/download/{filename}"
+        file_url = f"http://10.0.3.150:5000/api/notices/download/{filename}"
 
     return jsonify({
         'notice_id': notice['notice_id'],
@@ -93,7 +93,7 @@ def notice_create_api():
         filename = file.filename  # 파일명 보호
         file_path = os.path.join(UPLOAD_FOLDER, filename)
         file.save(file_path)
-        file_url =  f"http://192.168.1.101:5000/api/notice/download/{filename}"
+        file_url =  f"http://10.0.3.150:5000/api/notice/download/{filename}"
 
     kst = pytz.timezone('Asia/Seoul')
     created_at = datetime.now(kst).strftime('%Y-%m-%d %H:%M:%S')
@@ -158,7 +158,7 @@ def notice_edit_api(notice_id):
         filename = secure_filename(file.filename)
         file_path = os.path.join(UPLOAD_FOLDER, filename)
         file.save(file_path)
-        file_url =  f"http://192.168.1.101:5000/api/notice/download/{filename}"
+        file_url =  f"http://10.0.3.150:5000/api/notice/download/{filename}"
 
     if (title == (notice['title'] or "").strip() and
         content == (notice['content'] or "").strip() and

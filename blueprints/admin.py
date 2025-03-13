@@ -66,9 +66,9 @@ def admin_login():
         response = jsonify({
             'message': '로그인 성공', 
             'user_id': user_id,
-            "redirect_url": "http://192.168.1.100:80/admin/admin_man.html"
+            "redirect_url": "http://10.0.1.100:80/admin/admin_man.html"
         })
-        response.headers.add("Access-Control-Allow-Origin", "http://192.168.1.100:80")  # 프론트엔드 주소
+        response.headers.add("Access-Control-Allow-Origin", "http://10.0.1.100:80")  # 프론트엔드 주소
         response.headers.add("Access-Control-Allow-Credentials", "true")  # 세션 유지 허용
         return response, 200
 

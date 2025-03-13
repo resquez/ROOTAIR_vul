@@ -13,7 +13,7 @@ import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '1234'
-CORS(app,supports_credentials=True,resources={r"/api/*":{"origins":"http://192.168.1.100:80"}})
+CORS(app,supports_credentials=True,resources={r"/api/*":{"origins":"http://10.0.1.100:80"}})
 
 login_manager = LoginManager()
 login_manager.init_app(app)
